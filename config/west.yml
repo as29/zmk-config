@@ -4,11 +4,14 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: infused-kim
       url-base: https://github.com/infused-kim
+    - name: as29
+      url-base: https://github.com/as29
   projects:
     - name: zmk
       #remote: zmkfirmware
       #revision: main
-      remote: infused-kim
+      #remote: infused-kim
+      remote: as29
       revision: sofle
       import: app/west.yml
   self:
