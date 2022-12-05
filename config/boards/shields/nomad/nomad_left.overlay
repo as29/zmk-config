@@ -16,3 +16,11 @@
 		, <&pro_micro 14 GPIO_ACTIVE_HIGH>
 		;
 };
+
+&left_scroll_encoder {
+  status = "okay";
+};
+
+&left_rotary_encoder {
+  status = "okay";
+};

@@ -8,11 +8,9 @@ manifest:
       url-base: https://github.com/as29
   projects:
     - name: zmk
-      #remote: zmkfirmware
-      #revision: main
+      remote: zmkfirmware
+      revision: main
       #remote: infused-kim
-      remote: as29
-      revision: sofle
-      import: app/west.yml
+      import: config/west.yml
   self:
     path: config
