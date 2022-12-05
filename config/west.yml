@@ -11,6 +11,6 @@ manifest:
       remote: zmkfirmware
       revision: main
       #remote: infused-kim
-      import: config/west.yml
+      import: app/west.yml
   self:
     path: config
