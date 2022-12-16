@@ -16,6 +16,8 @@
 #define NUM     3   // Layer for numbers and function keys
 #define CON     4   // Configuration layer
 
+#define NONE    0
+
 / {
     combos {
       compatible = "zmk,combos";
