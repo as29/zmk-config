@@ -18,6 +18,96 @@
 
 #define NONE    0
 
+
+/*
+ * TODO: SEGREGATE MACROS AND COMBOS INTO THEIR OWN FILES
+ */
+ 
+/ {
+    macros {
+    
+      /*
+       * ALT+TAB behaviour, mapped to thumb scroller
+       */
+      m_app_switcher_fwd: m_app_switcher_fwd {
+        label = "Switch_Apps_FWD";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings
+          = <&macro_press &kp LALT>
+          , <&macro_tap &kp TAB>
+          , <&macro_wait_time 1500>
+          , <&macro_release &kp LALT>
+          ;
+      };
+      
+      /*
+       * ALT+SHIFT+TAB behaviour, mapped to thumb scroller
+       */
+      m_app_switcher_rev: m_app_switcher_rev {
+        label = "Switch_Apps_REV";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings
+          = <&macro_press &kp LALT &kp LSHFT>
+          , <&macro_tap &kp TAB>
+          , <&macro_wait_time 1500>
+          , <&macro_release &kp LALT &kp LSHFT>
+          ;
+      };
+      
+      /*
+       * Type opening and closing double quotes ("") and 
+       * place cursor in between
+       */
+      m_dquotes: m_dquotes {
+        label = "DQuotes"
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings = <&kp DQT>, <&kp DQT>, <&kp LEFT>;
+      };
+      
+      /*
+       * Type opening and closing braces ({}) and 
+       * place cursor in between
+       */
+      m_braces: m_braces {
+        label = "Braces"
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings = <&kp LBRC>, <&kp RBRC>, <&kp LEFT>;
+      };
+      
+      /*
+       * Type opening and closing parenthesis () and 
+       * place cursor in between
+       */
+      m_parens: m_parens {
+        label = "Parens"
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings = <&kp LPAR>, <&kp RPAR>, <&kp LEFT>;
+      };
+      
+      /*
+       * Type opening and closing brackets ([]) and 
+       * place cursor in between
+       */
+      m_brackets: m_brackets {
+        label = "Brackets"
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings = <&kp LBKT>, <&kp RBKT>, <&kp LEFT>;
+      };
+    };
+  };
+
 / {
     combos {
       compatible = "zmk,combos";
@@ -112,11 +202,12 @@
         bindings = <&kp LS(RIGHT)>;
       };
     };
-};
+  };
 
-
-// Defining the CON layer to be activated only if the
-// SYM and NAV layers are activated
+/*
+ * Defining the CON layer to be activated only if the 
+ * SYM and NAV layers are activated
+ */
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -125,20 +216,50 @@
             then-layer = <CON>;
         };
     };
-};
+  };
 
 
 / {
     behaviors {
+    
       // Home row mods behaviour
       bhm: balanced_homerow_mods {
         compatible = "zmk,behavior-hold-tap";
         label = "HOMEROW_MODS";
         #binding-cells = <2>;
-        tapping-term-ms = <200>;    // <---[[moderate duration]]
+        tapping-term-ms = <200>;  // <-[[moderate duration]]
         quick-tap-ms = <0>;
         flavor = "balanced";
         bindings = <&kp>, <&kp>;
+      };
+      
+      /*
+       * Special implementation for home row mod to
+       * accomodate the double quotes macro. Calls the dqr
+       * behavior when tapped, which in turn calls the
+       * double quotes macro `m_dquotes` only if the shift
+       * key was held.
+       */
+      dq_bhm: double_quotes_balanced_homerow_mods {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOMEROW_MODS";
+        #binding-cells = <2>;
+        tapping-term-ms = <200>;  // <-[[moderate duration]]
+        quick-tap-ms = <0>;
+        flavor = "balanced";
+        bindings = <&kp>, <&dqr>;
+      };
+
+      /*
+       * Morphing behaviour for single quotes to call the  
+       * double quotes macro when used with LSHFT or RSHFT
+       */
+      dqr: dquotes_resolve {
+        compatible = "zmk,behavior-mod-morph";
+        label = "DOUBLE_QUOTES_RESOLVE";
+        #binding-cells = <0>;
+        bindings = <&kp SQT>, <&m_dquotes>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
       };
     };
     
@@ -153,24 +274,24 @@
       // | MUTE| ESC | BKSP| DEL | ENT |   |PSCRN| ENT  | SPC | TAB | ??? |
         bindings = <
           &kp Q         &kp W         &kp E           &kp R           &kp T         &kp Y       &kp U           &kp I           &kp O         &kp P
-          &bhm LGUI A   &bhm LALT S   &bhm LSHIFT D   &bhm LCTRL F    &kp G         &kp H       &bhm LCTRL J    &bhm RSHIFT K   &bhm LALT L   &bhm RGUI APOS
+          &bhm LGUI A   &bhm LALT S   &bhm LSHFT D    &bhm LCTRL F    &kp G         &kp H       &bhm LCTRL J    &bhm RSHFT K    &bhm LALT L   &dq_bhm RGUI SQT /* TODO: confirm dqr behavior and macro */
           &kp Z         &kp X         &kp C           &kp V           &kp B         &kp N       &kp M           &kp COMMA       &kp DOT       &kp FSLH
           &kp C_MUTE    &lt SYM ESC   &kp BSPC        &lt NUM DEL     &kp RET       &kp PSCRN   &kp RET         &kp SPACE       &lt NAV TAB   &kp PSCRN
         >;
                         
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>; 
+        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp m_app_switcher_fwd m_app_switcher_rev &inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>; 
       };
 
       symbol_layer {
       // -----------------------------------------------------------------
-      // |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  [  |  ]  |
+      // |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  ~  |  +  |
       // |     |  =  |  _  |  -  |  `  |   |     |  (  |  )  |  ;  |  :  |
-      // | CAPS|     |  +  |  ~  |     |   |     |  {  |  }  |  |  |  \  |
+      // | CAPS|     |  [  |  ]  |     |   |     |  {  |  }  |  |  |  \  |
       // |     |     |     |     |     |   |     |     |     |     |     |
         bindings = <
-          &kp EXCL    &kp AT    &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp STAR    &kp LBKT    &kp RBKT
+          &kp EXCL    &kp AT    &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp STAR    &kp TILDE   &kp PLUS 
           &none       &kp EQUAL &kp UNDER   &kp MINUS   &kp GRAVE       &none       &kp LPAR    &kp RPAR    &kp SEMI    &kp COLON
-          &kp CAPS    &none     &kp PLUS    &kp TILDE   &none           &none       &kp LBRC    &kp RBRC    &kp PIPE    &kp BSLH
+          &kp CAPS    &none     &kp LBKT    &kp RBKT    &none           &none       &kp LBRC    &kp RBRC    &kp PIPE    &kp BSLH
           &trans      &trans    &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
         >;
                         
@@ -225,4 +346,4 @@
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
       };
     };
-};
+  };
