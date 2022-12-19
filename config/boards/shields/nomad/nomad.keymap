@@ -279,7 +279,7 @@
           &kp C_MUTE    &lt SYM ESC   &kp BSPC        &lt NUM DEL     &kp RET       &kp PSCRN   &kp RET         &kp SPACE       &lt NAV TAB   &kp PSCRN
         >;
                         
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp m_app_switcher_fwd m_app_switcher_rev &inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>; 
+        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>; 
       };
 
       symbol_layer {
