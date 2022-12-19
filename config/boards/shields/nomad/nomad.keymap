@@ -18,6 +18,9 @@
 
 #define NONE    0
 
+#define DUMMY 5     // a dummy key code for making the
+                    // double quotes macro work
+
 
 /*
  * TODO: SEGREGATE MACROS AND COMBOS INTO THEIR OWN FILES
@@ -274,7 +277,7 @@
       // | MUTE| ESC | BKSP| DEL | ENT |   |PSCRN| ENT  | SPC | TAB | ??? |
         bindings = <
           &kp Q         &kp W         &kp E           &kp R           &kp T         &kp Y       &kp U           &kp I           &kp O         &kp P
-          &bhm LGUI A   &bhm LALT S   &bhm LSHFT D    &bhm LCTRL F    &kp G         &kp H       &bhm LCTRL J    &bhm RSHFT K    &bhm LALT L   &dq_bhm RGUI SQT /* TODO: confirm dqr behavior and macro */
+          &bhm LGUI A   &bhm LALT S   &bhm LSHFT D    &bhm LCTRL F    &kp G         &kp H       &bhm LCTRL J    &bhm RSHFT K    &bhm LALT L   &dq_bhm RGUI DUMMY
           &kp Z         &kp X         &kp C           &kp V           &kp B         &kp N       &kp M           &kp COMMA       &kp DOT       &kp FSLH
           &kp C_MUTE    &lt SYM ESC   &kp BSPC        &lt NUM DEL     &kp RET       &kp PSCRN   &kp RET         &kp SPACE       &lt NAV TAB   &kp PSCRN
         >;
