@@ -240,9 +240,9 @@
        * double quotes macro `m_dquotes` only if the shift
        * key was held.
        */
-      dq_bhm: double_quotes_balanced_homerow_mods {
+      dq_bhm: double_quotes_balanced_homerow_mod {
         compatible = "zmk,behavior-hold-tap";
-        label = "HOMEROW_MODS";
+        label = "DQ_HOMEROW_MOD";
         #binding-cells = <2>;
         tapping-term-ms = <200>;  // <-[[moderate duration]]
         quick-tap-ms = <0>;
@@ -290,8 +290,8 @@
       // |     |     |     |     |     |   |     |     |     |     |     |
         bindings = <
           &kp EXCL    &kp AT    &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp STAR    &kp TILDE   &kp PLUS 
-          &none       &kp EQUAL &kp UNDER   &kp MINUS   &kp GRAVE       &none       &kp LPAR    &kp RPAR    &kp SEMI    &kp COLON
-          &kp CAPS    &none     &kp LBKT    &kp RBKT    &none           &none       &kp LBRC    &kp RBRC    &kp PIPE    &kp BSLH
+          &none       &kp EQUAL &kp UNDER   &kp MINUS   &kp GRAVE       &none       &m_parens   &kp RPAR    &kp SEMI    &kp COLON
+          &kp CAPS    &none     &m_brackets &kp RBKT    &none           &none       &m_braces   &kp RBRC    &kp PIPE    &kp BSLH
           &trans      &trans    &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
         >;
                         
