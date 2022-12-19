@@ -63,7 +63,7 @@
        * place cursor in between
        */
       m_dquotes: m_dquotes {
-        label = "DQuotes"
+        label = "DQuotes";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <0>;
@@ -75,7 +75,7 @@
        * place cursor in between
        */
       m_braces: m_braces {
-        label = "Braces"
+        label = "Braces";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <0>;
@@ -87,7 +87,7 @@
        * place cursor in between
        */
       m_parens: m_parens {
-        label = "Parens"
+        label = "Parens";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <0>;
@@ -99,7 +99,7 @@
        * place cursor in between
        */
       m_brackets: m_brackets {
-        label = "Brackets"
+        label = "Brackets";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <0>;
