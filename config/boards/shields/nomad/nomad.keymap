@@ -18,9 +18,10 @@
 
 #define NONE    0
 
-#define DUMMY 5     // a dummy key code for making the
+#define DUMMY   5   // a dummy key code for making the
                     // double quotes macro work
 
+#define APP_SW  6   // key code to trigger ALT+TAB macro
 
 /*
  * TODO: SEGREGATE MACROS AND COMBOS INTO THEIR OWN FILES
@@ -30,35 +31,34 @@
     macros {
     
       /*
-       * ALT+TAB behaviour, mapped to thumb scroller
+       * ALT+TAB macro, mapped to left thumb scroller. When
+       * activated through the mod-morph behavior, will open
+       * the app switcher space. The arrow keys, bound to
+       * the same encoder can be used to navigate to the
+       * desired app in the switcher space.
        */
-      m_app_switcher_fwd: m_app_switcher_fwd {
-        label = "Switch_Apps_FWD";
+      m_enter_app_switch: m_enter_app_switch {
+        label = "Enter_App_Switcher";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <0>;
         bindings
           = <&macro_press &kp LALT>
           , <&macro_tap &kp TAB>
-          , <&macro_wait_time 1500>
-          , <&macro_release &kp LALT>
           ;
       };
       
       /*
-       * ALT+SHIFT+TAB behaviour, mapped to thumb scroller
+       * When activated through the mod-morph behavior, will
+       * exit the app switcher space, selecting the
+       * highlighted app
        */
-      m_app_switcher_rev: m_app_switcher_rev {
-        label = "Switch_Apps_REV";
+      m_exit_app_switch: m_exit_app_switch {
+        label = "Exit_App_Switcher";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <0>;
-        bindings
-          = <&macro_press &kp LALT &kp LSHFT>
-          , <&macro_tap &kp TAB>
-          , <&macro_wait_time 1500>
-          , <&macro_release &kp LALT &kp LSHFT>
-          ;
+        bindings = <&macro_release &kp LALT>;
       };
       
       /*
@@ -264,6 +264,21 @@
         bindings = <&kp SQT>, <&m_dquotes>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
       };
+      
+      /*
+       * Morphing behaviour for calling or exiting the app-
+       * switcher space, bound to the left thumb encoder
+       * switch. Will open the app switcher space or close
+       * it if already open, activating the highlighted
+       * app - which can be selected using the scroll.
+       */
+      sw_app: switch_app {
+        compatible = "zmk,behavior-mod-morph";
+        label = "SWITCH_APP";
+        #binding-cells = <0>;
+        bindings = <&m_enter_app_switch>, <&m_exit_app_switch>;
+        mods = <(MOD_LALT)>;
+      };
     };
     
     keymap {
@@ -274,15 +289,15 @@
       // |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
       // |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  |
       // |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |
-      // | MUTE| ESC | BKSP| DEL | ENT |   |PSCRN| ENT  | SPC | TAB | ??? |
+      // | MUTE| ESC | BKSP| DEL |SWAPP|   |PSCRN| ENT  | SPC | TAB | ??? |
         bindings = <
           &kp Q         &kp W         &kp E           &kp R           &kp T         &kp Y       &kp U           &kp I           &kp O         &kp P
           &bhm LGUI A   &bhm LALT S   &bhm LSHFT D    &bhm LCTRL F    &kp G         &kp H       &bhm LCTRL J    &bhm RSHFT K    &bhm LALT L   &dq_bhm RGUI DUMMY
           &kp Z         &kp X         &kp C           &kp V           &kp B         &kp N       &kp M           &kp COMMA       &kp DOT       &kp FSLH
-          &kp C_MUTE    &lt SYM ESC   &kp BSPC        &lt NUM DEL     &kp RET       &kp PSCRN   &kp RET         &kp SPACE       &lt NAV TAB   &kp PSCRN
+          &kp C_MUTE    &lt SYM ESC   &kp BSPC        &lt NUM DEL     &sw_app       &kp PSCRN   &kp RET         &kp SPACE       &lt NAV TAB   &kp PSCRN
         >;
                         
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>; 
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp LEFT RIGHT &inc_dec_kp UP DOWN &inc_dec_kp PG_UP PG_DN>; 
       };
 
       symbol_layer {
