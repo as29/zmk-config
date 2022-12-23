@@ -131,6 +131,12 @@
         bindings = <&kp LC(Z)>;
       };
       
+      combo_redo {                  //  combo #3
+        timeout-ms = <50>;
+        key-positions = <4 14>;
+        bindings = <&kp LC(Z)>;
+      };
+      
       combo_cut {                   //  combo #4
         timeout-ms = <50>;
         key-positions = <11 21>;
