@@ -128,52 +128,52 @@
       combo_undo {                  //  combo #3
         timeout-ms = <50>;
         key-positions = <10 20>;
-        bindings = <&kp LC(Z)>;
+        bindings = <&kp LC(Y)>;
       };
       
-      combo_redo {                  //  combo #3
+      combo_redo {                  //  combo #4
         timeout-ms = <50>;
         key-positions = <4 14>;
         bindings = <&kp LC(Z)>;
       };
       
-      combo_cut {                   //  combo #4
+      combo_cut {                   //  combo #5
         timeout-ms = <50>;
         key-positions = <11 21>;
         bindings = <&kp LC(X)>;
       };
       
-      combo_copy {                  //  combo #5
+      combo_copy {                  //  combo #6
         timeout-ms = <50>;
         key-positions = <12 22>;
         bindings = <&kp LC(C)>;
       };
       
-      combo_paste {                 //  combo #6
+      combo_paste {                 //  combo #7
         timeout-ms = <50>;
         key-positions = <13 23>;
         bindings = <&kp LC(V)>;
       };
       
-      combo_select_all {            //  combo #7
+      combo_select_all {            //  combo #8
         timeout-ms = <50>;
         key-positions = <0 10>;
         bindings = <&kp LC(A)>;
       };
       
-      combo_save {                  //  combo #8
+      combo_save {                  //  combo #9
         timeout-ms = <50>;
         key-positions = <1 11>;
         bindings = <&kp LC(S)>;
       };
       
-      combo_enter {                 //  combo #9
+      combo_enter {                 //  combo #10
         timeout-ms = <50>;
         key-positions = <3 4>;
         bindings = <&kp RET>;
       };
       
-      combo_tab {                   //  combo #10
+      combo_tab {                   //  combo #11
         timeout-ms = <50>;
         key-positions = <13 14>;
         bindings = <&kp TAB>;
@@ -234,7 +234,7 @@
         compatible = "zmk,behavior-hold-tap";
         label = "HOMEROW_MODS";
         #binding-cells = <2>;
-        tapping-term-ms = <150>;
+        tapping-term-ms = <200>;
         quick-tap-ms = <0>;
         flavor = "tap-preferred";
         bindings = <&kp>, <&kp>;
@@ -301,7 +301,7 @@
           &kp C_MUTE    &lt SYM ESC   &kp BSPC        &lt NUM DEL     &sw_app       &kp PSCRN   &kp RET         &kp SPACE       &lt NAV TAB   &kp PSCRN
         >;
                         
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp LEFT RIGHT &inc_dec_kp PG_UP PG_DN &inc_dec_kp LC(LS(LEFT)) LC(LS(RIGHT))>; 
+        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT &inc_dec_kp PG_DN PG_UP &inc_dec_kp LC(LS(LEFT)) LC(LS(RIGHT))>; 
       };
 
       symbol_layer {
@@ -317,7 +317,7 @@
           &trans      &trans    &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
         >;
                         
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
+        sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp DOWN UP &inc_dec_kp LEFT RIGHT>;
       };
                 
       navigation_layer {
@@ -333,7 +333,7 @@
           &trans      &trans    &trans      &trans      &trans        &trans    &trans          &trans    &trans          &trans
         >;
                         
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
+        sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp DOWN UP &inc_dec_kp LEFT RIGHT>;
       };
                 
       numfun_layer {
@@ -349,7 +349,7 @@
           &trans    &trans    &trans    &trans    &trans              &trans        &trans      &trans      &trans      &trans
         >;
                         
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
+        sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp DOWN UP &inc_dec_kp LEFT RIGHT>;
       };
                 
       config_layer {
@@ -365,7 +365,7 @@
           &trans          &trans          &trans          &trans          &trans            &trans    &trans        &trans    &trans    &trans
         >;
                         
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
+        sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp DOWN UP &inc_dec_kp LEFT RIGHT>;
       };
     };
   };
