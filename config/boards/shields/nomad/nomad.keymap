@@ -18,10 +18,8 @@
 
 #define NONE    0
 
-#define DUMMY   5   // a dummy key code for making the
-                    // double quotes macro work
-
-#define APP_SW  6   // key code to trigger ALT+TAB macro
+// defining a dummy key code for the double quotes macro
+#define DUMMY   5
 
 /*
  * TODO: SEGREGATE MACROS AND COMBOS INTO THEIR OWN FILES
@@ -226,13 +224,13 @@
     behaviors {
     
       // Home row mods behaviour
-      bhm: balanced_homerow_mods {
+      hm: homerow_mods {
         compatible = "zmk,behavior-hold-tap";
         label = "HOMEROW_MODS";
         #binding-cells = <2>;
-        tapping-term-ms = <200>;  // <-[[moderate duration]]
+        tapping-term-ms = <150>;
         quick-tap-ms = <0>;
-        flavor = "balanced";
+        flavor = "tap-preferred";
         bindings = <&kp>, <&kp>;
       };
       
@@ -243,7 +241,7 @@
        * double quotes macro `m_dquotes` only if the shift
        * key was held.
        */
-      dq_bhm: double_quotes_balanced_homerow_mod {
+      dq_hm: double_quotes_balanced_homerow_mod {
         compatible = "zmk,behavior-hold-tap";
         label = "DQ_HOMEROW_MOD";
         #binding-cells = <2>;
@@ -266,7 +264,7 @@
       };
       
       /*
-       * Morphing behaviour for calling or exiting the app-
+       * Morphing behaviour for entering or exiting the app-
        * switcher space, bound to the left thumb encoder
        * switch. Will open the app switcher space or close
        * it if already open, activating the highlighted
@@ -292,12 +290,12 @@
       // | MUTE| ESC | BKSP| DEL |SWAPP|   |PSCRN| ENT  | SPC | TAB | ??? |
         bindings = <
           &kp Q         &kp W         &kp E           &kp R           &kp T         &kp Y       &kp U           &kp I           &kp O         &kp P
-          &bhm LGUI A   &bhm LALT S   &bhm LSHFT D    &bhm LCTRL F    &kp G         &kp H       &bhm LCTRL J    &bhm RSHFT K    &bhm LALT L   &dq_bhm RGUI DUMMY
+          &hm LGUI A    &hm LALT S    &hm LSHFT D     &hm LCTRL F     &kp G         &kp H       &hm LCTRL J     &hm RSHFT K     &hm LALT L    &dq_hm RGUI DUMMY
           &kp Z         &kp X         &kp C           &kp V           &kp B         &kp N       &kp M           &kp COMMA       &kp DOT       &kp FSLH
           &kp C_MUTE    &lt SYM ESC   &kp BSPC        &lt NUM DEL     &sw_app       &kp PSCRN   &kp RET         &kp SPACE       &lt NAV TAB   &kp PSCRN
         >;
                         
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp LEFT RIGHT &inc_dec_kp UP DOWN &inc_dec_kp PG_UP PG_DN>; 
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp LEFT RIGHT &inc_dec_kp PG_UP PG_DN &inc_dec_kp LC(LS(LEFT)) LC(LS(RIGHT))>; 
       };
 
       symbol_layer {
