@@ -323,13 +323,13 @@
       navigation_layer {
       // -----------------------------------------------------------------
       // | REDO|     |     |     | ENT |   |     | P.Wd|  UP | N.Wd|     |
-      // | ALL |SAVE |LSHFT| CTRL| TAB |   |L DEF| LFT | DWN | RGT |     |
-      // | UNDO| CUT | CPY | PST | SPC |   |L NAV| BSWd|     | DLWd|     |
+      // | ALL |SAVE |LSHFT| CTRL| TAB |   |     | LFT | DWN | RGT |     |
+      // | UNDO| CUT | CPY | PST | SPC |   |     | BSWd|     | DLWd|     |
       // |     |     |     |     |     |   |     |     |     |     |     |
         bindings = <
           &kp LC(Y)   &none     &none       &none       &kp RET       &none     &kp LC(LEFT)    &kp UP    &kp LC(RIGHT)   &none
-          &kp LC(A)   &kp LC(S) &kp LSHFT   &kp LCTRL   &kp TAB       &to DEF   &kp LEFT        &kp DOWN  &kp RIGHT       &none
-          &kp LC(Z)   &kp LC(X) &kp LC(C)   &kp LC(V)   &kp SPACE     &to NAV   &kp LC(BSPC)    &none     &kp LC(DEL)     &none
+          &kp LC(A)   &kp LC(S) &kp LSHFT   &kp LCTRL   &kp TAB       &none     &kp LEFT        &kp DOWN  &kp RIGHT       &none
+          &kp LC(Z)   &kp LC(X) &kp LC(C)   &kp LC(V)   &kp SPACE     &none     &kp LC(BSPC)    &none     &kp LC(DEL)     &none
           &trans      &trans    &trans      &trans      &trans        &trans    &trans          &trans    &trans          &trans
         >;
                         
@@ -355,13 +355,13 @@
       config_layer {
       // -----------------------------------------------------------------
       // | BT1 | BT2 | BT3 | BT4 | BT5 |   |     |O USB|     |     |E.POW|
-      // |     |     |     |     |     |   |     |     |     |     |     |
-      // |BTCLR|     |     |     |O BLE|   |     |     |     |     |     |
+      // |     |     |     |     |     |   |L DEF|     |     |     |     |
+      // |BTCLR|     |     |     |O BLE|   |L NAV|     |     |     |     |
       // |     |     |     |     |     |   |     |     |     |     |     |
         bindings = <
           &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4      &none     &out OUT_USB  &none     &none     &ext_power EP_TOG
-          &none           &bt BT_SEL 1    &none           &none           &none             &none     &none         &none     &none     &none
-          &bt BT_CLR      &none           &none           &none           &out OUT_BLE      &none     &none         &none     &none     &none
+          &none           &bt BT_SEL 1    &none           &none           &none             &to DEF   &none         &none     &none     &none
+          &bt BT_CLR      &none           &none           &none           &out OUT_BLE      &to NAV   &none         &none     &none     &none
           &trans          &trans          &trans          &trans          &trans            &trans    &trans        &trans    &trans    &trans
         >;
                         
