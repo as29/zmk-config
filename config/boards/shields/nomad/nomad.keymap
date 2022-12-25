@@ -328,8 +328,8 @@
       // |     |     |     |     |     |   |     |     |     |     |     |
         bindings = <
           &kp LC(Y)   &none     &none       &none       &kp RET       &none     &kp LC(LEFT)    &kp UP    &kp LC(RIGHT)   &none
-          &kp LC(A)   &kp LC(S) &kp LSHFT   &kp LCTRL   &kp TAB       &tog DEF  &kp LEFT        &kp DOWN  &kp RIGHT       &none
-          &kp LC(Z)   &kp LC(X) &kp LC(C)   &kp LC(V)   &kp SPACE     &tog NAV  &kp LC(BSPC)    &none     &kp LC(DEL)     &none
+          &kp LC(A)   &kp LC(S) &kp LSHFT   &kp LCTRL   &kp TAB       &to DEF   &kp LEFT        &kp DOWN  &kp RIGHT       &none
+          &kp LC(Z)   &kp LC(X) &kp LC(C)   &kp LC(V)   &kp SPACE     &to NAV   &kp&kp LC(BSPC)    &none     &kp LC(DEL)     &none
           &trans      &trans    &trans      &trans      &trans        &trans    &trans          &trans    &trans          &trans
         >;
                         
