@@ -70,7 +70,7 @@
         wait-ms = <10>;
         bindings
           = <&kp DQT &kp DQT>
-          , <&macro_wait_time 200> // Wait for shift release
+          , <&macro_wait_time 500> // Wait for shift release
           , <&kp LEFT>
           ;
       };
@@ -177,13 +177,13 @@
         bindings = <&kp RET>;
       };
       
-      combo_tab {                   //  combo #11
+      combo_space {                   //  combo #11
         timeout-ms = <50>;
         key-positions = <13 14>;
         bindings = <&kp TAB>;
       };
       
-      combo_space {                 //  combo #12
+      combo_tab {                 //  combo #12
         timeout-ms = <50>;
         key-positions = <23 24>;
         bindings = <&kp SPACE>;
@@ -330,13 +330,13 @@
         label = "NavCom";
       // -----------------------------------------------------------------
       // | REDO|     |     |     | ENT |   |     | P.Wd|  UP | N.Wd|     |
-      // | ALL |SAVE |LSHFT| CTRL| TAB |   |     | LFT | DWN | RGT |     |
-      // | UNDO| CUT | CPY | PST | SPC |   |     | BSWd|     | DLWd|     |
+      // | ALL |SAVE |LSHFT| CTRL| SPC |   |     | LFT | DWN | RGT |     |
+      // | UNDO| CUT | CPY | PST | TAB |   |     | BSWd|     | DLWd|     |
       // |     |     |     |     |     |   |     |     |     |     |     |
         bindings = <
           &kp LC(Y)   &none     &none       &none       &kp RET       &none     &kp LC(LEFT)    &kp UP    &kp LC(RIGHT)   &none
-          &kp LC(A)   &kp LC(S) &kp LSHFT   &kp LCTRL   &kp TAB       &none     &kp LEFT        &kp DOWN  &kp RIGHT       &none
-          &kp LC(Z)   &kp LC(X) &kp LC(C)   &kp LC(V)   &kp SPACE     &none     &kp LC(BSPC)    &none     &kp LC(DEL)     &none
+          &kp LC(A)   &kp LC(S) &kp LSHFT   &kp LCTRL   &kp SPACE     &none     &kp LEFT        &kp DOWN  &kp RIGHT       &none
+          &kp LC(Z)   &kp LC(X) &kp LC(C)   &kp LC(V)   &kp TAB       &none     &kp LC(BSPC)    &none     &kp LC(DEL)     &none
           &trans      &trans    &trans      &trans      &trans        &trans    &trans          &trans    &trans          &trans
         >;
                         
@@ -347,13 +347,13 @@
         label = "NumFun";
       // -----------------------------------------------------------------
       // |  F9 | F10 | F11 | F12 | ENT |   |  *  |  7  |  8  |  9  |  +  |
-      // |  F5 |  F6 |  F7 |  F8 | TAB |   |  0  |  4  |  5  |  6  |  -  |
-      // |  F1 |  F2 |  F3 |  F4 | SPC |   |  /  |  1  |  2  |  3  |  .  |
+      // |  F5 |  F6 |  F7 |  F8 | SPC |   |  0  |  4  |  5  |  6  |  -  |
+      // |  F1 |  F2 |  F3 |  F4 | TAB |   |  /  |  1  |  2  |  3  |  .  |
       // |     |     |     |     |     |   |     |     |     |     |     |
         bindings = < 
           &kp F9    &kp F10   &kp F11   &kp F12   &kp RET           &kp KP_MULTIPLY   &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_PLUS
-          &kp F5    &kp F6    &kp F7    &kp F8    &kp TAB           &kp KP_N0         &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_MINUS
-          &kp F1    &kp F2    &kp F3    &kp F4    &kp SPACE         &kp KP_DIVIDE     &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_DOT
+          &kp F5    &kp F6    &kp F7    &kp F8    &kp SPACE         &kp KP_N0         &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_MINUS
+          &kp F1    &kp F2    &kp F3    &kp F4    &kp TAB           &kp KP_DIVIDE     &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_DOT
           &trans    &trans    &trans    &trans    &trans            &trans            &trans      &trans      &trans      &trans
         >;
                         
