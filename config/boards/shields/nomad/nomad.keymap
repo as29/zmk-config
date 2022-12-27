@@ -67,12 +67,16 @@
         label = "DQuotes";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        wait-ms = <0>;
-        bindings = <&kp DQT>, <&kp DQT>, <&kp LEFT>;
+        wait-ms = <10>;
+        bindings
+          = <&kp DQT &kp DQT>
+          , <&macro_wait_time 200> // Wait for shift release
+          , <&kp LEFT>
+          ;
       };
       
       /*
-       * Type opening and closing braces ({}) and 
+       * Type opening and closing braces {} and 
        * place cursor in between
        */
       m_braces: m_braces {
@@ -96,7 +100,7 @@
       };
       
       /*
-       * Type opening and closing brackets ([]) and 
+       * Type opening and closing brackets [])and 
        * place cursor in between
        */
       m_brackets: m_brackets {
@@ -289,7 +293,7 @@
       compatible = "zmk,keymap";
 
       default_layer {
-        label = "QWERTY";
+        label = "Qwerty";
       // ------------------------------------------------------------------
       // |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
       // |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  |
@@ -306,7 +310,7 @@
       };
 
       symbol_layer {
-        label = "SYMBOLS";
+        label = "Symbol";
       // -----------------------------------------------------------------
       // |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  ~  |  +  |
       // |     |  =  |  _  |  -  |  `  |   |     |  (  |  )  |  ;  |  :  |
@@ -323,7 +327,7 @@
       };
                 
       navigation_layer {
-        label = "NAVCOMM";
+        label = "NavCom";
       // -----------------------------------------------------------------
       // | REDO|     |     |     | ENT |   |     | P.Wd|  UP | N.Wd|     |
       // | ALL |SAVE |LSHFT| CTRL| TAB |   |     | LFT | DWN | RGT |     |
@@ -340,7 +344,7 @@
       };
                 
       numfun_layer {
-        label = "NUMFUN";
+        label = "NumFun";
       // -----------------------------------------------------------------
       // |  F9 | F10 | F11 | F12 | ENT |   |  *  |  7  |  8  |  9  |  +  |
       // |  F5 |  F6 |  F7 |  F8 | TAB |   |  0  |  4  |  5  |  6  |  -  |
