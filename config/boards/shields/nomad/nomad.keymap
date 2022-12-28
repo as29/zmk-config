@@ -10,7 +10,7 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-#define DEF     0   // The default edit layer
+#define DEF     0   // The default QWERTY layer
 #define SYM     1   // Layer for symbols
 #define NAV     2   // Layer for navigation
 #define NUM     3   // Layer for numbers and function keys
@@ -313,13 +313,13 @@
         label = "Symbol";
       // -----------------------------------------------------------------
       // |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  ~  |  +  |
-      // |     |  =  |  _  |  -  |  `  |   |     |  (  |  )  |  ;  |  :  |
-      // | CAPS|     |  [  |  ]  | NAV |   |     |  {  |  }  |  |  |  \  |
+      // | DEF |  =  |  _  |  -  |  `  |   |     |  (  |  )  |  ;  |  :  |
+      // | CAPS| NUM |  [  |  ]  | NAV |   |     |  {  |  }  |  |  |  \  |
       // |     |     |     |     |     |   |     |     |     |     |     |
         bindings = <
           &kp EXCL    &kp AT    &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp STAR    &kp TILDE   &kp PLUS 
-          &none       &kp EQUAL &kp UNDER   &kp MINUS   &kp GRAVE       &none       &m_parens   &kp RPAR    &kp SEMI    &kp COLON
-          &kp CAPS    &none     &m_brackets &kp RBKT    &to NAV         &none       &m_braces   &kp RBRC    &kp PIPE    &kp BSLH
+          &to DEF     &kp EQUAL &kp UNDER   &kp MINUS   &kp GRAVE       &none       &m_parens   &kp RPAR    &kp SEMI    &kp COLON
+          &kp CAPS    &to NUM   &m_brackets &kp RBKT    &to NAV         &none       &m_braces   &kp RBRC    &kp PIPE    &kp BSLH
           &trans      &trans    &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
         >;
                         
