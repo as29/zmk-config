@@ -313,12 +313,12 @@
         label = "Symbol";
       // -----------------------------------------------------------------
       // |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  ~  |  +  |
-      // | DEF |  =  |  _  |  -  |  `  |   |     |  (  |  )  |  ;  |  :  |
+      // |     |  =  |  _  |  -  |  `  |   |     |  (  |  )  |  ;  |  :  |
       // | CAPS| NUM |  [  |  ]  | NAV |   |     |  {  |  }  |  |  |  \  |
       // |     |     |     |     |     |   |     |     |     |     |     |
         bindings = <
           &kp EXCL    &kp AT    &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp STAR    &kp TILDE   &kp PLUS 
-          &to DEF     &kp EQUAL &kp UNDER   &kp MINUS   &kp GRAVE       &none       &m_parens   &kp RPAR    &kp SEMI    &kp COLON
+          &none       &kp EQUAL &kp UNDER   &kp MINUS   &kp GRAVE       &none       &m_parens   &kp RPAR    &kp SEMI    &kp COLON
           &kp CAPS    &to NUM   &m_brackets &kp RBKT    &to NAV         &none       &m_braces   &kp RBRC    &kp PIPE    &kp BSLH
           &trans      &trans    &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
         >;
@@ -331,12 +331,12 @@
       // -----------------------------------------------------------------
       // | REDO|     | DEF |     | ENT |   |     | P.Wd|  UP | N.Wd|     |
       // | ALL |SAVE |LSHFT| CTRL| SPC |   |     | LFT | DWN | RGT |     |
-      // | UNDO| CUT | CPY | PST | TAB |   | DEF | BSWd|     | DLWd|     |
+      // | UNDO| CUT | CPY | PST | TAB |   | NUM | BSWd|     | DLWd|     |
       // |     |     |     |     |     |   |     |     |     |     |     |
         bindings = <
           &kp LC(Y)   &none     &to DEF     &none       &kp RET       &none     &kp LC(LEFT)    &kp UP    &kp LC(RIGHT)   &none
           &kp LC(A)   &kp LC(S) &kp LSHFT   &kp LCTRL   &kp SPACE     &none     &kp LEFT        &kp DOWN  &kp RIGHT       &none
-          &kp LC(Z)   &kp LC(X) &kp LC(C)   &kp LC(V)   &kp TAB       &none     &kp LC(BSPC)    &none     &kp LC(DEL)     &none
+          &kp LC(Z)   &kp LC(X) &kp LC(C)   &kp LC(V)   &kp TAB       &to NUM   &kp LC(BSPC)    &none     &kp LC(DEL)     &none
           &trans      &trans    &trans      &trans      &trans        &trans    &trans          &trans    &trans          &trans
         >;
                         
