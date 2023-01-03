@@ -8,10 +8,10 @@ manifest:
       url-base: https://github.com/as29
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
-      #remote: infused-kim
-      #revision: sofle
+      #remote: zmkfirmware
+      #revision: main
+      remote: infused-kim
+      revision: split-encoder
       import: app/west.yml
   self:
     path: config

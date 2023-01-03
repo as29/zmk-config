@@ -176,7 +176,7 @@
           &trans      &trans    &trans      &trans      &trans        &trans      &trans          &trans    &trans          &trans
         >;
                         
-        sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp END HOME &inc_dec_kp DOWN UP &inc_dec_kp LEFT RIGHT>;
+        sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp HOME END &inc_dec_kp DOWN UP &inc_dec_kp LEFT RIGHT>;
       };
                 
       numfun_layer {
