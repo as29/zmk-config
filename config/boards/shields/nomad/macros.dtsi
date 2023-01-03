@@ -1,8 +1,10 @@
 / {
     macros {
-      
+// Include only if custom macros are enabled
+#ifdef ENABLE_CUSTOM_MACROS
       #include "custom_macros.dtsi"
-      
+#endif
+
       /*
        * ALT+TAB macro, mapped to left thumb scroller. When
        * activated through the mod-morph behavior, will open
