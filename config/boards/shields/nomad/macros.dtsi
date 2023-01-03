@@ -1,0 +1,89 @@
+/ {
+    macros {
+      
+      #include "custom_macros.dtsi"
+      
+      /*
+       * ALT+TAB macro, mapped to left thumb scroller. When
+       * activated through the mod-morph behavior, will open
+       * the app switcher space. The arrow keys, bound to
+       * the same encoder can be used to navigate to the
+       * desired app in the switcher space.
+       */
+      m_enter_app_switch: m_enter_app_switch {
+        label = "Enter_App_Switcher";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings
+          = <&macro_press &kp LALT>
+          , <&macro_tap &kp TAB>
+          ;
+      };
+      
+      /*
+       * When activated through the mod-morph behavior, will
+       * exit the app switcher space, selecting the
+       * highlighted app
+       */
+      m_exit_app_switch: m_exit_app_switch {
+        label = "Exit_App_Switcher";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings = <&macro_release &kp LALT>;
+      };
+      
+      /*
+       * Type opening and closing double quotes ("") and 
+       * place cursor in between
+       */
+      m_dquotes: m_dquotes {
+        label = "DQuotes";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <10>;
+        bindings
+          = <&kp DQT &kp DQT>
+          , <&macro_wait_time 500> // Wait for shift release
+          , <&kp LEFT>
+          ;
+      };
+      
+      /*
+       * Type opening and closing braces {} and 
+       * place cursor in between
+       */
+      m_braces: m_braces {
+        label = "Braces";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings = <&kp LBRC>, <&kp RBRC>, <&kp LEFT>;
+      };
+      
+      /*
+       * Type opening and closing parenthesis () and 
+       * place cursor in between
+       */
+      m_parens: m_parens {
+        label = "Parens";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings = <&kp LPAR>, <&kp RPAR>, <&kp LEFT>;
+      };
+      
+      /*
+       * Type opening and closing brackets [])and 
+       * place cursor in between
+       */
+      m_brackets: m_brackets {
+        label = "Brackets";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings = <&kp LBKT>, <&kp RBKT>, <&kp LEFT>;
+      };
+    };
+  };
