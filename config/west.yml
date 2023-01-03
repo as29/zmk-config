@@ -14,4 +14,4 @@ manifest:
       revision: my-changes/split-encoder
       import: app/west.yml
   self:
-    path: ../config
+    path: config
