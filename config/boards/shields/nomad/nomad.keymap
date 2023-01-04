@@ -71,7 +71,7 @@
         compatible = "zmk,behavior-hold-tap";
         label = "HOMEROW_MODS";
         #binding-cells = <2>;
-        tapping-term-ms = <250>;
+        tapping-term-ms = <350>;
         quick-tap-ms = <125>;
         flavor = "tap-preferred";
         bindings = <&kp>, <&kp>;
@@ -88,12 +88,27 @@
         compatible = "zmk,behavior-hold-tap";
         label = "DQ_HOMEROW_MOD";
         #binding-cells = <2>;
-        tapping-term-ms = <250>;
+        tapping-term-ms = <350>;
         quick-tap-ms = <125>;
         flavor = "tap-preferred";
         bindings = <&kp>, <&dqr>;
       };
 
+    
+      /* 
+       * Home row mods behaviour for SHIFT keys with lower
+       * tapping term
+       */
+      shm: shift_homerow_mods {
+        compatible = "zmk,behavior-hold-tap";
+        label = "SHIFT_HOMEROW_MODS";
+        #binding-cells = <2>;
+        tapping-term-ms = <200>;
+        quick-tap-ms = <125>;
+        flavor = "tap-preferred";
+        bindings = <&kp>, <&kp>;
+      };
+      
       /*
        * Morphing behaviour for single quotes to call the  
        * double quotes macro when used with LSHFT or RSHFT
@@ -134,15 +149,15 @@
       // |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
       // |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  |
       // |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |
-      // | MUTE| ESC | BKSP| DEL |SWAPP|   |PSCRN| ENT  | SPC | TAB | ??? |
+      // | MUTE| ESC | BKSP| DEL |SWAPP|   |SLWRD| ENT  | SPC | TAB |PRSCR|
         bindings = <
           &kp Q         &kp W         &kp E           &kp R           &kp T         &kp Y       &kp U           &kp I           &kp O         &kp P
-          &hm LGUI A    &hm LALT S    &hm LSHFT D     &hm LCTRL F     &kp G         &kp H       &hm LCTRL J     &hm RSHFT K     &hm LALT L    &dq_hm RGUI DUMMY
+          &hm LGUI A    &hm LALT S    &shm LSHFT D    &hm LCTRL F     &kp G         &kp H       &hm LCTRL J     &shm RSHFT K    &hm LALT L    &dq_hm RGUI DUMMY
           &kp Z         &kp X         &kp C           &kp V           &kp B         &kp N       &kp M           &kp COMMA       &kp DOT       &kp FSLH
-          &kp C_MUTE    &lt SYM ESC   &kp BSPC        &lt NUM DEL     &sw_app       &kp PSCRN   &kp RET         &kp SPACE       &lt NAV TAB   &kp PSCRN
+          &kp C_MUTE    &lt SYM ESC   &kp BSPC        &lt NUM DEL     &sw_app       &m_sl_wd    &kp RET         &kp SPACE       &lt NAV TAB   &kp LG(LS(S))
         >;
                         
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT &inc_dec_kp PG_DN PG_UP &inc_dec_kp LC(PG_DN) LC(PG_UP)>; 
+        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT &inc_dec_kp DOWN UP &inc_dec_kp LC(LS(RIGHT)) LC(LS(LEFT))>; 
       };
 
       symbol_layer {
@@ -176,7 +191,7 @@
           &trans      &trans    &trans      &trans      &trans        &trans      &trans          &trans    &trans          &trans
         >;
                         
-        sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp HOME END &inc_dec_kp DOWN UP &inc_dec_kp LEFT RIGHT>;
+        sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp LC(PG_UP) LC(PG_DN) &inc_dec_kp DOWN UP &inc_dec_kp RIGHT LEFT>;
       };
                 
       numfun_layer {
@@ -193,7 +208,7 @@
           &trans    &trans    &trans    &trans    &trans            &trans            &trans      &trans      &trans      &trans
         >;
                         
-        sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp END HOME &inc_dec_kp DOWN UP &inc_dec_kp LEFT RIGHT>;
+        sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp END HOME &inc_dec_kp DOWN UP &inc_dec_kp RIGHT LEFT>;
       };
                 
       config_layer {

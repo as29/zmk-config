@@ -37,6 +37,17 @@
       };
       
       /*
+       * Select current word and place cursor at end of word
+       */
+      m_sl_wd: m_select_word {
+        label = "Select_Word";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings = <&kp LC(LEFT)>, <&kp LS(LC(RIGHT))>;
+      };
+      
+      /*
        * Type opening and closing double quotes ("") and 
        * place cursor in between
        */
@@ -46,7 +57,7 @@
         #binding-cells = <0>;
         wait-ms = <10>;
         bindings
-          = <&kp DQT &kp DQT>
+          = <&kp DQT>, <&kp DQT>
           , <&macro_wait_time 500> // Wait for shift release
           , <&kp LEFT>
           ;
