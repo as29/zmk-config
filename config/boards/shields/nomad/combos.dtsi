@@ -3,97 +3,97 @@
       compatible = "zmk,combos";
       
       combo_ctrl_shft_esc {         //  combo #1
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <1 2 12>;
         bindings = <&kp LC(LS(ESC))>;
       };
       
       combo_ctrl_alt_del {          //  combo #2
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <11 21 22>;
         bindings = <&kp LC(LA(DEL))>;
       };
       
       combo_undo {                  //  combo #3
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <10 20>;
         bindings = <&kp LC(Z)>;
       };
       
       combo_redo {                  //  combo #4
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <4 14>;
         bindings = <&kp LC(Y)>;
       };
       
       combo_cut {                   //  combo #5
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <11 21>;
         bindings = <&kp LC(X)>;
       };
       
       combo_copy {                  //  combo #6
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <12 22>;
         bindings = <&kp LC(C)>;
       };
       
       combo_paste {                 //  combo #7
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <13 23>;
         bindings = <&kp LC(V)>;
       };
       
       combo_select_all {            //  combo #8
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <0 10>;
         bindings = <&kp LC(A)>;
       };
       
       combo_save {                  //  combo #9
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <1 11>;
         bindings = <&kp LC(S)>;
       };
       
       combo_enter {                 //  combo #10
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <3 4>;
         bindings = <&kp RET>;
       };
       
       combo_space {                 //  combo #11
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <13 14>;
         bindings = <&kp SPACE>;
       };
       
       combo_tab {                   //  combo #12
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <23 24>;
         bindings = <&kp TAB>;
       };
       
       combo_select_up {             //  combo #13
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <7 17>;
         bindings = <&kp LS(UP)>;
       };
       
       combo_select_down {           //  combo #14
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <17 27>;
         bindings = <&kp LS(DOWN)>;
       };
       
       combo_select_left {           //  combo #15
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <6 16>;
         bindings = <&kp LS(LEFT)>;
       };
        
       combo_select_right {          //  combo #16
-        timeout-ms = <50>;
+        timeout-ms = <20>;
         key-positions = <8 18>;
         bindings = <&kp LS(RIGHT)>;
       };

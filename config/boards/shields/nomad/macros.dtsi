@@ -57,8 +57,9 @@
         #binding-cells = <0>;
         wait-ms = <10>;
         bindings
-          = <&kp DQT>, <&kp DQT>
-          , <&macro_wait_time 500> // Wait for shift release
+          = <&kp DQT>
+          , <&macro_wait_time 200> // Wait for shift release
+          , <&kp DQT>
           , <&kp LEFT>
           ;
       };
