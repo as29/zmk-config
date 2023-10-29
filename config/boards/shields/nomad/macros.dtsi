@@ -48,6 +48,17 @@
       };
       
       /*
+       * Delete current word
+       */
+      m_dl_wd: m_delete_word {
+        label = "Delete_Word";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings = <&m_sl_wd>, <&kp DEL>;
+      };
+      
+      /*
        * Type opening and closing double quotes ("") and 
        * place cursor in between
        */
