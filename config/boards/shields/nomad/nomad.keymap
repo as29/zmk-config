@@ -118,7 +118,7 @@
         label = "DOUBLE_QUOTES_RESOLVE";
         #binding-cells = <0>;
         bindings = <&kp SQT>, <&m_dquotes>;
-        mods = <(LSHIFT|RSHIFT)>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
       };
       
       /*
