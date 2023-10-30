@@ -136,7 +136,7 @@
           = <&m_enter_app_switch>
           , <&m_exit_app_switch>
           ;
-        mods = <(LALT)>;
+        mods = <(MOD_LALT)>;
       };
     };
     
