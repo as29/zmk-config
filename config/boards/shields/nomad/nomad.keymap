@@ -118,7 +118,7 @@
         label = "DOUBLE_QUOTES_RESOLVE";
         #binding-cells = <0>;
         bindings = <&kp SQT>, <&m_dquotes>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
+        mods = <(LSHIFT|RSHIFT)>;
       };
       
       /*
@@ -136,7 +136,7 @@
           = <&m_enter_app_switch>
           , <&m_exit_app_switch>
           ;
-        mods = <(MOD_LALT)>;
+        mods = <(LALT)>;
       };
     };
     
@@ -152,7 +152,7 @@
       // | MUTE| ESC | BKSP| DEL |SWAPP|   |SLWRD| ENT  | SPC | TAB |PRSCR|
         bindings = <
           &kp Q         &kp W         &kp E           &kp R           &kp T         &kp Y       &kp U           &kp I           &kp O         &kp P
-          &hm LGUI A    &hm LALT S    &shm LSHFT D    &hm LCTRL F     &kp G         &kp H       &hm LCTRL J     &shm RSHFT K    &hm LALT L    &dq_hm RGUI DUMMY
+          &hm LGUI A    &hm LALT S    &shm LSHIFT D   &hm LCTRL F     &kp G         &kp H       &hm LCTRL J     &shm RSHIFT K   &hm LALT L    &dq_hm RGUI DUMMY
           &kp Z         &kp X         &kp C           &kp V           &kp B         &kp N       &kp M           &kp COMMA       &kp DOT       &kp FSLH
           &kp C_MUTE    &lt SYM ESC   &kp BSPC        &lt NUM DEL     &sw_app       &m_sl_wd    &kp RET         &kp SPACE       &lt NAV TAB   &kp LG(LS(S))
         >;
@@ -186,7 +186,7 @@
       // |     |     |     |     |     |   |     |     |     |     |     |
         bindings = <
           &kp LC(Y)   &kp LC(BSPC)  &m_dl_wd    &kp LC(DEL)   &kp RET       &none     &kp LC(LEFT)    &kp UP      &kp LC(RIGHT)   &none
-          &kp LC(A)   &kp LC(S)     &kp LSHFT   &kp LCTRL     &kp SPACE     &none     &kp LEFT        &kp DOWN    &kp RIGHT       &kp PG_UP
+          &kp LC(A)   &kp LC(S)     &kp LSHIFT  &kp LCTRL     &kp SPACE     &none     &kp LEFT        &kp DOWN    &kp RIGHT       &kp PG_UP
           &kp LC(Z)   &kp LC(X)     &kp LC(C)   &kp LC(V)     &kp TAB       &to NUM   &kp HOME        &none       &kp END         &kp PG_DN
           &trans      &trans        &trans      &trans        &trans        &trans    &trans          &trans      &trans          &trans
         >;
