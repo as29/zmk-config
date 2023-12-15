@@ -1,0 +1,60 @@
+/ {
+    combos {
+      compatible = "zmk,combos";
+      
+      combo_undo_mac {                  //  combo #17
+        layers = <mac_DEF>;
+        timeout-ms = <20>;
+        require-prior-idle-ms = <400>;
+        key-positions = <10 20>;
+        bindings = <&kp LG(Z)>;
+      };
+        
+      combo_redo_mac {                  //  combo #18
+        layers = <mac_DEF>;
+        timeout-ms = <20>;
+        require-prior-idle-ms = <400>;
+        key-positions = <4 14>;
+        bindings = <&kp LS(LG(Z))>;
+      };
+      combo_cut_mac {                   //  combo #19
+        layers = <mac_DEF>;
+        timeout-ms = <20>;
+        require-prior-idle-ms = <400>;
+        key-positions = <11 21>;
+        bindings = <&kp LG(X)>;
+      };
+      
+      combo_copy_mac {                  //  combo #20
+        layers = <mac_DEF>;
+        timeout-ms = <20>;
+        require-prior-idle-ms = <400>;
+        key-positions = <12 22>;
+        bindings = <&kp LG(C)>;
+      };
+
+      combo_paste_mac {                 //  combo #21
+        layers = <mac_DEF>;
+        timeout-ms = <20>;
+        require-prior-idle-ms = <400>;
+        key-positions = <13 23>;
+        bindings = <&kp LG(V)>;
+      };
+
+      combo_select_all_mac {            //  combo #22
+        layers = <mac_DEF>;
+        timeout-ms = <20>;
+        require-prior-idle-ms = <400>;
+        key-positions = <0 10>;
+        bindings = <&kp LG(A)>;
+      };
+
+      combo_save_mac {                  //  combo #23
+        layers = <mac_DEF>;
+        timeout-ms = <20>;
+        require-prior-idle-ms = <400>;
+        key-positions = <1 11>;
+        bindings = <&kp LG(S)>;
+      };
+    };
+  };

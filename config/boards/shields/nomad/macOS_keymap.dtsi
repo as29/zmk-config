@@ -1,0 +1,50 @@
+mac_default_layer {
+  label = "MacOS";
+// ------------------------------------------------------------------
+// |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
+// |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  |
+// |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |
+// | MUTE| ESC | BKSP| DEL |SWAPP|   |SLWRD| ENT  | SPC | TAB |PRSCR|
+  bindings = <
+    &kp Q         &kp W             &kp E           &kp R               &kp T         &kp Y       &kp U        &kp I           &kp O              &kp P
+    &hm LGUI A    &hm LALT S        &shm LSHIFT D   &hm LCMD F          &kp G         &kp H       &hm RCTRL J  &shm RSHIFT K   &hm LALT L         &dq_hm RGUI DUMMY
+    &kp Z         &kp X             &kp C           &kp V               &kp B         &kp N       &kp M        &kp COMMA       &kp DOT            &kp FSLH
+    &kp C_MUTE    &lt mac_SYM ESC   &kp BSPC        &lt NUM DEL         &sw_app       &m_sl_wd    &kp RET      &kp SPACE       &lt mac_NAV TAB    &kp LG(LS(KP_N3))
+  >;
+                  
+  sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT &inc_dec_kp DOWN UP &inc_dec_kp LC(LS(RIGHT)) LC(LS(LEFT))>; 
+};
+
+mac_symbol_layer {
+  label = "MacSymbol";
+// -----------------------------------------------------------------
+// |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  ~  |  +  |
+// |CWORD|  =  |  _  |  -  |  `  |   |     |  (  |  )  |  ;  |  :  |
+// | CAPS| NUM |  [  |  ]  | NAV |   |     |  {  |  }  |  |  |  \  |
+// |     |     |     |     |     |   |     |     |     |     |     |
+  bindings = <
+    &kp EXCL    &kp AT        &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp STAR    &kp TILDE   &kp PLUS 
+    &caps_word  &kp EQUAL     &kp UNDER   &kp MINUS   &kp GRAVE       &none       &m_parens   &kp RPAR    &kp SEMI    &kp COLON
+    &kp CAPS    &to NUM       &m_brackets &kp RBKT    &to mac_NAV     &none       &m_braces   &kp RBRC    &kp PIPE    &kp BSLH
+    &trans      &trans        &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
+  >;
+                        
+  sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT &inc_dec_kp PG_DN PG_UP &inc_dec_kp LC(PG_DN) LC(PG_UP)>;
+};
+                
+mac_navigation_layer {
+  label = "MacNavCom";
+// -----------------------------------------------------------------
+// | REDO| BSWd|DLCWd| DLWd| ENT |   |     | P.Wd|  UP | N.Wd|     |
+// | ALL |SAVE |LSHFT| CTRL| SPC |   |     | LFT | DWN | RGT |PG UP|
+// | UNDO| CUT | CPY | PST | TAB |   | NUM | HOME|     | END |PG DN|
+// |     |     |     |     |     |   |     |     |     |     |     |
+  bindings = <
+    &kp LG(Y)   &kp LA(BSPC)  &m_dl_wd        &kp LA(DEL)   &kp RET       &none     &kp LA(LEFT)    &kp UP      &kp LA(RIGHT)   &none
+    &kp LG(A)   &kp LC(S)     &kp LSHIFT      &kp LCMD      &kp SPACE     &none     &kp LEFT        &kp DOWN    &kp RIGHT       &kp PG_UP
+    &kp LG(Z)   &kp LG(X)     &kp LG(C)       &kp LG(V)     &kp TAB       &to NUM   &kp HOME        &none       &kp END         &kp PG_DN
+    &trans      &trans        &trans          &trans        &trans        &trans    &trans          &trans      &trans          &trans
+  >;
+                  
+  sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp LC(PG_UP) LC(PG_DN) &inc_dec_kp DOWN UP &inc_dec_kp RIGHT LEFT>;
+};

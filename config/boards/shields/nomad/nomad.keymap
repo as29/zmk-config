@@ -17,25 +17,30 @@
  */
 #define ENABLE_CUSTOM_MACROS
 
-#define DEF     0   // The default QWERTY layer
-#define SYM     1   // Layer for symbols
-#define NAV     2   // Layer for navigation
-#define NUM     3   // Layer for numbers and function keys
-#define CON     4   // Configuration layer
+#define DEF         0   // The default QWERTY layer
+#define SYM         1   // Layer for symbols
+#define NAV         2   // Layer for navigation
+#define mac_DEF     3   // The default macOS QWERTY layer
+#define mac_SYM     4   // Layer for symbols
+#define mac_NAV     5   // Layer for navigation
+#define NUM         6   // Layer for numbers and function keys
+#define CON         7   // Configuration layer
 
 // Define only if custom macros are enabled
 #ifdef ENABLE_CUSTOM_MACROS
-  #define MAC     5   // Custom macro layer
+  #define MACRO     8   // Custom macro layer
 #endif
 
 // defining a dummy key code for the double quotes macro
-#define DUMMY   6
+#define DUMMY   9
+
 
 /*
  * Including macros and combos
  */
 #include "macros.dtsi"
 #include "combos.dtsi"
+#include "macOS_combos.dtsi"
 
 
 /*
@@ -50,12 +55,24 @@
           if-layers = <SYM NAV>;
           then-layer = <CON>;
         };
+        
+        // Get to config layer from macOS layers
+        macOS_config_layer {
+          if-layers = <mac_SYM mac_NAV>;
+          then-layer = <CON>;
+        };  
 
 // Define only if custom macros are enabled through config
 #ifdef ENABLE_CUSTOM_MACROS
         custom_macro_layer {
           if-layers = <NUM NAV>;
-          then-layer = <MAC>;
+          then-layer = <MACRO>;
+        };
+        
+        // Get to macro layer from macOS layers
+        macOS_custom_macro_layer {
+          if-layers = <NUM mac_NAV>;
+          then-layer = <MACRO>;
         };
 #endif
 
@@ -193,6 +210,9 @@
                         
         sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp LC(PG_UP) LC(PG_DN) &inc_dec_kp DOWN UP &inc_dec_kp RIGHT LEFT>;
       };
+      
+      // Including the MacOS keymap
+      #include "macOS_keymap.dtsi"
                 
       numfun_layer {
         label = "NumFun";
@@ -216,13 +236,13 @@
       // -----------------------------------------------------------------
       // | BT1 | BT2 | BT3 | BT4 | BT5 |   |     |O USB|     |     |E.POW|
       // |     |     |     |     |     |   |     |     |     |     |     |
-      // |BTCLR|     |     |     |O BLE|   |     |     |     |     |     |
+      // |BTCLR|     |     |     |O BLE|   | WIN | MAC |     |     |     |
       // |     |     |     |     |     |   |     |     |     |     |     |
         bindings = <
-          &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4      &none     &out OUT_USB  &none     &none     &ext_power EP_TOG
-          &none           &none           &none           &none           &none             &none     &none         &none     &none     &none
-          &bt BT_CLR      &none           &none           &none           &out OUT_BLE      &none     &none         &none     &none     &none
-          &trans          &trans          &trans          &trans          &trans            &trans    &trans        &trans    &trans    &trans
+          &m_bt_sel 0     &m_bt_sel 1     &m_activate_mac   &m_bt_sel 3     &m_bt_sel 4       &none     &out OUT_USB  &none     &none     &ext_power EP_TOG
+          &none           &none           &none             &none           &none             &none     &none         &none     &none     &none
+          &bt BT_CLR      &none           &none             &none           &out OUT_BLE      &to DEF   &to mac_DEF   &none     &none     &none
+          &trans          &trans          &trans            &trans          &trans            &trans    &trans        &trans    &trans    &trans
         >;
                         
         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT &inc_dec_kp PG_DN PG_UP &inc_dec_kp LC(PG_DN) LC(PG_UP)>;

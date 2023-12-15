@@ -6,6 +6,37 @@
 #endif
 
       /*
+       * Activate the MacOS default layer (mac_DEF) when the
+       * the bluetooth profile #3 is selected
+       */
+      m_activate_mac: m_activate_mac {
+        label = "Activate_MacOS_Layer";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        bindings
+          = <&bt BT_SEL 2>
+          , <&to mac_DEF>
+          ;
+      };
+      
+      /*
+       * Activate the bluetooth profile passed as a parmeter
+       * and set qwerty as the default layer
+       */
+      m_bt_sel: m_bt_sel {
+        label = "Select_BT_Profile";
+        compatible = "zmk,behavior-macro-one-param";
+        #binding-cells = <1>;
+        wait-ms = <0>;
+        bindings
+          = <&macro_param_1to2>
+          , <&bt BT_SEL MACRO_PLACEHOLDER>
+          , <&to DEF>
+          ;
+      };
+       
+      /*
        * ALT+TAB macro, mapped to left thumb scroller. When
        * activated through the mod-morph behavior, will open
        * the app switcher space. The arrow keys, bound to
@@ -66,10 +97,10 @@
         label = "DQuotes";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        wait-ms = <10>;
+        wait-ms = <0>;
         bindings
           = <&kp DQT>
-          , <&macro_wait_time 200> // Wait for shift release
+          , <&macro_wait_time 300> // Wait for shift release
           , <&kp DQT>
           , <&kp LEFT>
           ;

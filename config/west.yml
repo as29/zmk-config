@@ -1,13 +1,13 @@
-manifest:
-  remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
-    - name: as29
-      url-base: https://github.com/as29
-  projects:
-    - name: zmk
-      remote: zmkfirmware
-      revision: main
-      import: app/west.yml
-  self:
-    path: config
+# manifest:
+  # remotes:
+    # - name: zmkfirmware
+      # url-base: https://github.com/zmkfirmware
+    # - name: as29
+      # url-base: https://github.com/as29
+  # projects:
+    # - name: zmk
+      # remote: zmkfirmware
+      # revision: main
+      # import: app/west.yml
+  # self:
+    # path: config
