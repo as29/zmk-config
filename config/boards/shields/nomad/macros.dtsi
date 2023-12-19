@@ -131,7 +131,7 @@
       };
       
       /*
-       * Type opening and closing brackets [])and 
+       * Type opening and closing brackets [] and 
        * place cursor in between
        */
       m_brackets: m_brackets {

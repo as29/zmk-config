@@ -7,7 +7,7 @@ mac_default_layer {
 // | MUTE| ESC | BKSP| DEL |SWAPP|   |SLWRD| ENT  | SPC | TAB |PRSCR|
   bindings = <
     &kp Q         &kp W             &kp E           &kp R               &kp T         &kp Y       &kp U        &kp I           &kp O              &kp P
-    &hm LGUI A    &hm LALT S        &shm LSHIFT D   &hm LCMD F          &kp G         &kp H       &hm RCTRL J  &shm RSHIFT K   &hm LALT L         &dq_hm RGUI DUMMY
+    &hm LGUI A    &hm LALT S        &shm LSHIFT D   &hm LCMD F          &kp G         &hm RCMD H  &hm RCTRL J  &shm RSHIFT K   &hm LALT L         &dq_hm RGUI DUMMY
     &kp Z         &kp X             &kp C           &kp V               &kp B         &kp N       &kp M        &kp COMMA       &kp DOT            &kp FSLH
     &kp C_MUTE    &lt mac_SYM ESC   &kp BSPC        &lt NUM DEL         &sw_app       &m_sl_wd    &kp RET      &kp SPACE       &lt mac_NAV TAB    &kp LG(LS(KP_N3))
   >;
@@ -16,7 +16,7 @@ mac_default_layer {
 };
 
 mac_symbol_layer {
-  label = "MacSymbol";
+  label = "MacSym";
 // -----------------------------------------------------------------
 // |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  ~  |  +  |
 // |CWORD|  =  |  _  |  -  |  `  |   |     |  (  |  )  |  ;  |  :  |
@@ -33,7 +33,7 @@ mac_symbol_layer {
 };
                 
 mac_navigation_layer {
-  label = "MacNavCom";
+  label = "MacNav";
 // -----------------------------------------------------------------
 // | REDO| BSWd|DLCWd| DLWd| ENT |   |     | P.Wd|  UP | N.Wd|     |
 // | ALL |SAVE |LSHFT| CTRL| SPC |   |     | LFT | DWN | RGT |PG UP|
